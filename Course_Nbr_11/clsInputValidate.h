@@ -11,6 +11,10 @@ public:
 			
 	}
 
+	 template <typename T> static T IsNumBetweenTemplate(T N1, T N2,T n)
+	{
+		return (n >= N1 && n <= N2);
+	}
 	static bool IsNumberBetween(float Number, float From, float To)
 	{
 		return (Number >= From && Number <= To);
@@ -40,6 +44,20 @@ public:
 	}
 
 	static int ReadIntNumber(string Message = "Invalid input! Please enter a valid integer: \n")
+	{
+		int Number ;
+		
+		while (!(cin >> Number))
+		{
+			cin.clear();
+
+			cin.ignore(numeric_limits<streamsize>::max(),'\n');
+			cout << Message;
+		}
+
+		return Number;
+	}
+	static float ReadFloatNumber(string Message = "Invalid input! Please enter a valid integer: \n")
 	{
 		int Number ;
 		

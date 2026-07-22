@@ -1,7 +1,10 @@
 #pragma once
 #include "clsScreen.h"
 #include "clsInputValidate.h"
+#include "clsFindCurrencyScreen.h"
+#include "clsUpdateCurrencyRateScreen.h"
 #include "clsCurrenciesListScreen.h"
+#include "clsCurrencyCalculatorScreen.h"
 #include <iostream>
 #include <iomanip>
 
@@ -26,15 +29,15 @@ private:
 	}
 	static void _ShowFindCurrenciesScreen()
 	{
-		cout << "\Fnd currencis";
+		clsFindCurrencyScreen::ShowFindCurrencyScreen();
 	}
 	static void _ShowUpdateRateScreen()
 	{
-		cout << "\Update currencis";
+		clsUpdateCurrencyRateScreen::ShowUpdateCurrencyRateScreen();
 	}
 	static void _ShowCurrenciesCalculatorScreen()
 	{
-		cout << "\calculator currencis";
+		clsCurrencyCalculatorScreen::ShowCurrencyCalculatorSceen();
 	}
 	static void _GoBackToCurrencyMenue()
 	{
@@ -90,7 +93,7 @@ public:
 		cout << setw(37) << left << "" << "===========================================\n";
 		cout << setw(37) << left << "" << "\t[1] Currency List.\n";
 		cout << setw(37) << left << "" << "\t[2] Find Currency.\n";
-		cout << setw(37) << left << "" << "\t[3] UpdateRate.\n";
+		cout << setw(37) << left << "" << "\t[3] Update Rate.\n";
 		cout << setw(37) << left << "" << "\t[4] Currency Culculator .\n";
 		
 		cout << setw(37) << left << "" << "\t[6] Main Menu.\n";

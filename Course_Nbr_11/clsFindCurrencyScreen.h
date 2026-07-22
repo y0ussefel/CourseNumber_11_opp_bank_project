@@ -24,6 +24,17 @@ class clsFindCurrencyScreen:protected clsScreen
         return Choice;
     }
 
+    static void _CountryCurrencyFound(clsCurrency Currency)
+    {
+        if (!Currency.IsEmpty())
+        {
+            cout << "\nCountry Found !";
+            _PrintCurrency(Currency);
+        }
+        else {
+            cout << "\nCountry is not Found !";
+        }
+    }
 public:
 
     static void ShowFindCurrencyScreen()
@@ -31,22 +42,23 @@ public:
         _DrawScreenHeader("\t Find Currency Screen");
 
         short Ansewer = _ReadFindCurrencyOption();
+        string CountryOrCurrency;
 
         if (Ansewer == 1)
         {
-            string Country = clsInputValidate::ReadString();
+            cout << "\nEnter Country : ";
+            CountryOrCurrency = clsInputValidate::ReadString();
+            clsCurrency Currency = clsCurrency::FindByCountry(CountryOrCurrency);
 
-            clsCurrency Currency = clsCurrency::FindByCountry(Country);
-            if (!Currency.IsEmpty())
-            {
-                cout << "\nCountry Found !";
-            }
-            else {
-                cout << "\nCountry is not Found !";
-            }
-             _PrintCurrency(Currency);
+            _CountryCurrencyFound(Currency);
         }
         else {
+            cout << "\nEnter Currency Code : ";
+            CountryOrCurrency = clsInputValidate::ReadString();
+            clsCurrency Currency = clsCurrency::FindByCurrencyCode(CountryOrCurrency);
+             _CountryCurrencyFound(Currency);
+
+             
 
         }
 

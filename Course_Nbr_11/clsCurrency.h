@@ -208,5 +208,21 @@ public:
 		return (!C.IsEmpty());
 	}
 
+	float ConvertToUSD(float Amount)
+	{
+		return (float)(Amount / Rate());
+	}
+
+	float ConvertToOtherCurrency(float Amout, clsCurrency Currency2)
+	{
+		float AmountUSD = ConvertToUSD(Amout);
+
+		if (Currency2.CurrencyCode() == "USD")
+		{
+			return AmountUSD;
+		}
+
+		return (float)(Currency2.Rate() * AmountUSD);
+	}
 };
 
